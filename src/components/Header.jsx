@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 export default function Header({themeDark, setThemeDark}){
+  const [menuOpen, setMenuOpen] = useState(false);
   const handleNavClick = (e) => {
     const href = e.currentTarget.getAttribute('href');
     if (href && href.startsWith('#')) {
@@ -9,13 +10,17 @@ export default function Header({themeDark, setThemeDark}){
       if (el) {
         el.scrollIntoView({ behavior: 'smooth' });
       }
+      setMenuOpen(false);
     }
   };
   return (
     <header className="site-header">
       <div className="container">
         <h1 className="brand">Thomas Bergendahl</h1>
-        <nav className="nav">
+        <button className="nav-toggle" aria-label="Toggle navigation" onClick={() => setMenuOpen(m => !m)}>
+          <span className="hamburger"></span>
+        </button>
+        <nav className={`nav${menuOpen ? ' open' : ''}`}>
           <a href="#about" onClick={handleNavClick}>About</a>
           <a href="#projects" onClick={handleNavClick}>Projects</a>
           <a href="#skills" onClick={handleNavClick}>Skills</a>
