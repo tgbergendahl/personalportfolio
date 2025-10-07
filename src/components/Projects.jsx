@@ -1,14 +1,31 @@
 import React from 'react'
 import p1 from '../assets/project1.png'
-import p2 from '../assets/project2.svg'
-import p3 from '../assets/project3.svg'
+import p2 from '../assets/ddCRP.svg'
+import p3 from '../assets/bert.png'
 
-function Card({img, title, desc, liveLink, sourceLink}){
+function Card({img, title, desc, liveLink, sourceLink, attribution}){
   return (
     <article className="project-card">
       <img src={img} alt={`${title} illustration`} />
       <h4>{title}</h4>
       <p>{desc}</p>
+      {attribution && (
+        <p className="attribution">
+          {attribution.text && (
+            <>
+              {attribution.text}
+              {attribution.link && (
+                <>
+                  {' '}
+                  <a href={attribution.link} target="_blank" rel="noopener noreferrer">
+                    {attribution.linkText}
+                  </a>
+                </>
+              )}
+            </>
+          )}
+        </p>
+      )}
       <p className="links">
         {liveLink && <a href={liveLink} target="_blank" rel="noopener noreferrer">Live</a>}
         {liveLink && sourceLink && ' · '}
@@ -49,6 +66,11 @@ export default function Projects(){
             and use a classical bag of words model for predicting continuous, non-sentiment outcomes, such as a price." 
             liveLink=""
             sourceLink="https://github.com/tgbergendahl/bert-regression"
+            attribution={{
+              text: "Image from",
+              link: "https://datadrivenscience.com/building-text-classification-models-using-bert/",
+              linkText: "Data Driven Science"
+            }}
           />
         </div>
       </div>
