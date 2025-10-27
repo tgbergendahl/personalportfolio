@@ -1,5 +1,5 @@
 import React from 'react'
-import profile from '../assets/profile-placeholder.svg'
+import profile from '/home/tgb/personal_dev/personalportfolio/src/assets/tgb_restaurant_cropped.jpg'
 
 export default function Hero(){
   const handleSeeMyWork = (e) => {
@@ -18,7 +18,7 @@ export default function Hero(){
           <p><a className="cta" href="#projects" onClick={handleSeeMyWork}>See my work</a></p>
         </div>
         <div className="hero-figure">
-          <img src={profile} alt="Profile placeholder illustration" />
+          <img src={profile} alt="Picture of me!" />
         </div>
       </div>
     </section>
