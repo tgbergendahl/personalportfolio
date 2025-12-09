@@ -3,6 +3,7 @@ import Header from './components/Header'
 import Hero from './components/Hero'
 import About from './components/About'
 import Projects from './components/Projects'
+import Theses from './components/Theses'
 import Skills from './components/Skills'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
@@ -46,6 +47,7 @@ export default function App(){
         <Hero />
         <About />
         <Projects />
+        <Theses />
         <Skills />
         <Contact />
       </main>
